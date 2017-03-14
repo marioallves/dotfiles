@@ -14,19 +14,19 @@ conky.config = {
 
 conky.text = [[
 
-[{ "full_text" : "VOLUME:" , "color" : "\#9fbc00" } ,
- { "full_text" : "${execpi 6 pactl list sinks | grep "Volume: " | cut -d " " -f6  | head -1}" } ,{ "full_text" : "MUSIC:" , "color" : "\#C70000" } ,
+[{ "full_text" : "VOLUME:" , "color" : "\#1793D0" } ,
+ { "full_text" : "${execpi 6 pactl list sinks | grep "Volume: " | cut -d " " -f6  | head -1}" } ,{ "full_text" : "MUSIC:" , "color" : "\#1793D0" } ,
  { "full_text" : "${if_mpd_playing}${mpd_smart 50} ${mpd_elapsed}/${mpd_length}${else}${mpd_status}${endif}" },
- { "full_text" : "FS:" , "color" : "\#1E90FF" } ,
+ { "full_text" : "FS:" , "color" : "\#1793D0" } ,
  { "full_text" : " / : ${fs_free /} ~/Support : ${fs_free /home/marioallves/Support/}" } ,
- { "full_text" : "CPU:" , "color" : "\#FF1493" } ,
+ { "full_text" : "CPU:" , "color" : "\#1793D0" } ,
  { "full_text" : "${cpu cpu0}%" } ,
- { "full_text" : "TEMP:" , "color" : "\#9fbc00" } ,
+ { "full_text" : "TEMP:" , "color" : "\#1793D0" } ,
  { "full_text" : "${execi 1 sensors | grep "Physical id 0:" | cut -d+ -f2 | cut -c1-7}" } ,
- { "full_text" : "FAN:" , "color" : "\#48D1CC" } ,
+ { "full_text" : "FAN:" , "color" : "\#1793D0" } ,
  { "full_text" : "${execi 1 sensors | grep "Exhaust  :" | cut -d" " -f 6-7}" } ,
- { "full_text" : "RAM:" , "color" : "\#9fbc00" } ,
+ { "full_text" : "RAM:" , "color" : "\#1793D0" } ,
  { "full_text" : "${mem} " },
- { "full_text" : "BATT:" , "color" : "\#EF902A" },
+ { "full_text" : "BATT:" , "color" : "\#1793D0" },
  { "full_text" : "${battery_short} - ${battery_time}" }],
 ]];
