@@ -1,0 +1,268 @@
+# based on Bitard's i3 config.
+#########
+# font
+#########
+
+font pango:Arial 11px
+
+##########
+# windows
+##########
+
+##########
+# borders
+##########
+new_window pixel 2
+new_float pixel 2
+hide_edge_borders vertical
+bindsym $mod+b border 2pixel
+
+#Autostart section
+
+# Start terminal with some software..:
+exec --no-startup-id urxvtc
+## Start clipster daemon
+exec --no-startup-id clipster -d
+#
+## shortcut to selection widget (primary)
+bindsym $mod+v exec clipster -sp
+#exec --no-startup-id urxvt -geometry 60x10 -e ncmpcpp
+
+##########
+# Other programs
+#
+##########
+
+##########
+# Colors
+##########
+
+# Some color variables (may be useful to define colors)
+
+set $black #000000
+set $white #FFFFFF
+set $green #33FF33
+set $lightblue #6666FF
+set $blue #3333FF
+set $red #FF0000
+set $pink #FF99CC 
+set $grey #A0A0A0
+set $yellow #FFFF33
+
+# class                          border   backgr.   text
+## BLUE ACTIVE BORDER
+client.focused                   #1793D1 #1793D1  #ffffff
+#client.focused                   #3333FF #3333FF  #111111
+client.unfocused                 #444444 #444444  #1791D1
+#client.unfocused                 #444444 #444444  #315858
+client.focused_inactive          #444444 #444444  #2c2c2f
+client.urgent                    #383a3b #383a3b  #ee0000
+
+# Define modkey. It also can be Mod1, which is Alt button, 
+# but it can cause conflicts.
+
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+##########
+# Keybinds
+##########
+
+# start a terminal
+bindsym $mod+Return exec urxvtc || lxterminal || xterm || terminator
+# kill focused window 
+bindsym $mod+Shift+c kill
+
+# Start htop (tool for watching system info)
+bindsym $mod+t exec urxvt -geometry 80x30 -e htop
+
+# start a program launcher:
+bindsym $mod+space  exec --no-startup-id dmenu_run -b  -fn 'pango:Arial 11px' -nb '#111111' -nf '#555555' -sb '#111111' -sf '#aadb0f'
+
+# Update system
+
+bindsym XF86Reload exec update && i3-nagbar -m 'update successful'
+
+# change window focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+i focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+i move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# Take a Screenshot using scrot.
+bindsym XF86LaunchA exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/shots/'"
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# Exec updates script that exec notify-send:
+bindsym $mod+u exec updates
+
+# enter fullscreen mode for the focused window.
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+w layout tabbed
+
+# bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# multimedia keys
+
+# Light
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86KbdBrightnessDown exec kbdlight down 25
+bindsym XF86KbdBrightnessUp exec kbdlight up 10
+
+# Audio
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioRaiseVolume exec amixer -c 0 set PCM 10+
+bindsym XF86AudioLowerVolume exec amixer -c 0 set PCM 20-
+bindsym XF86AudioMute exec amixer sset PCM toggle
+bindsym XF86AudioPlay exec mpc toggle
+
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspaces
+bindsym $mod+1 workspace 1: terms
+bindsym $mod+2 workspace 2: web
+bindsym $mod+3 workspace 3: misc
+
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1: terms
+bindsym $mod+Shift+2 move container to workspace 2: web
+bindsym $mod+Shift+3 move container to workspace 3: misc
+
+# reload the configuration file
+bindsym $mod+Shift+z reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes' 'i3-msg exit'"
+
+#lock screen
+bindsym XF86Eject exec i3lock-wrapper
+
+#restart wifi
+bindsym XF86LauchB exec restart_netctl
+# shutdown action
+bindsym $mod+Shift+S exec "i3-nagbar -t warning -m 'You pressed the shutdown shortcut. Do you really want to poweroff your PC?' -b 'Yes' 'i3-msg' 'systemctl poweroff'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym i resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+############
+# Status bars
+############
+
+# Top bar:
+bar {
+	mode dock
+	position top
+   workspace_buttons yes
+   status_command ~/.dotfiles/conky/conky
+   tray_output none
+   colors {
+	statusline	#DEDEDE
+	background	#2D2D2D
+     # class               border  backgrd text
+        focused_workspace  #292929 #9400D3 #DEDEDE
+        active_workspace   #2D2D2D #252525 #DEDEDE
+        inactive_workspace #2D2D2D #2D2D2D #6b6b6b
+        urgent_workspace   #252525 #252525 #FF00FF
+     }
+}
+
+# Bottom bar:
+bar {
+        mode dock
+        position bottom
+   workspace_buttons no
+   status_command ~/.dotfiles/conky/conky-down
+   tray_output none
+   colors {
+	statusline	#DEDEDE
+	background	#2D2D2D
+        }
+}
+
+#### RULES FOR SPECIFIC APPLICATIONS ####
+# Assign applications to workspaces
+
+assign [class="Google-chrome"] → 2: web
+assign [class="Firefox"] → 2: web
+assign [class="^URxvt$" instance="^ncmpcpp$"] → 1: terms
+assign [class="URxvt"] → 1: terms
+assign [class="Gimp"] → 3: misc
+assign [class="Virtualbox"] → 3: misc
+assign [class="Libreoffice"] → 3: misc
+assign [class="Uzbl-tabbed"] → 2: web
+
+# Tip: To find out app class, might be run:
+#       xprop | grep -i 'class'
+
+for_window [class="URxvt"] floating disable, border 2pixel
+for_window [class="Speedcrunch"] floating enable, border 2pixel
+for_window [class="Lxappearance"] floating enable, border 2pixel
+for_window [class="URxvt" instance="ncmpcpp"] floating enable, border 2pixel
