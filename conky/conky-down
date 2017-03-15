@@ -1,4 +1,4 @@
 #!/bin/sh
 echo "{\"version\":1}"
 echo "[[] ,"
-conky -c ~/.conky/conkyrc-down
+conky -c ~/.dotfiles/conky/conkyrc-down
