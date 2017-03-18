@@ -221,7 +221,7 @@ bar {
 	mode dock
 	position top
    workspace_buttons yes
-   status_command ~/.dotfiles/conky/conky
+   status_command ~/.dotfiles/archbook/conky/conky
    tray_output none
    colors {
 	statusline	#DEDEDE
@@ -239,7 +239,7 @@ bar {
         mode dock
         position bottom
    workspace_buttons no
-   status_command ~/.dotfiles/conky/conky-down
+   status_command ~/.dotfiles/archbook/conky/conky-down
    tray_output none
    colors {
 	statusline	#DEDEDE
