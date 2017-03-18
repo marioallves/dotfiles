@@ -23,7 +23,7 @@ TEXT
  { "full_text" : "${if_existing /sys/class/net/wlp3s0b1/operstate up} AP:" , "color" : "\#1793D0 ${endif}" } ,
  { "full_text" : "${if_existing /sys/class/net/wlp3s0b1/operstate up} ${wireless_ap wlp3s0b1} ${endif}" },
  { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} IP:" , "color" : "\#1793D0 ${endif}" } ,
- { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} ${addr enp2s0}%  ${endif}" },
+ { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} ${addr enp2s0}  ${endif}" },
  { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} DOWN:" , "color" : "\#1793D0 ${endif}" } ,
  { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} ${downspeed enp2s0} ${endif}" } ,
  { "full_text" : "${if_existing /sys/class/net/enp2s0/operstate up} UP" , "color" : "\#1793D0 ${endif}" } ,
