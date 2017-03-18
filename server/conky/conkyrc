@@ -22,7 +22,7 @@ conky.text = [[
  { "full_text" : "CPU:" , "color" : "\#1793D0" } ,
  { "full_text" : "${cpu cpu0}%" } ,
  { "full_text" : "TEMP:" , "color" : "\#1793D0" } ,
- { "full_text" : "${execi 1 sensors | grep "Physical id 0:" | cut -d+ -f2 | cut -c1-7}" } ,
+ { "full_text" : "${execi 1 sensors | grep "Package id 0:" | cut -d+ -f2 | cut -c1-7}" } ,
  { "full_text" : "FAN:" , "color" : "\#1793D0" } ,
  { "full_text" : "${execi 1 sensors | grep "Exhaust  :" | cut -d" " -f 6-7}" } ,
  { "full_text" : "RAM:" , "color" : "\#1793D0" } ,
