@@ -71,7 +71,6 @@ http://list.iblocklist.com/?list=ewqglwibdgjttwttrinl
 	 rm -f $DIR/extras*
 
 	 # download new blocklist
-	 wget "${URLS[@]}" -O - | gunzip | LC_ALL=C sort -u >
-	 "$DIR/extras-$(date +%d-%b-%R).txt"
+	 wget "${URLS[@]}" -O - | gunzip | LC_ALL=C sort -u > "$DIR/extras-$(date +%d-%b-%R).txt"
 
 
