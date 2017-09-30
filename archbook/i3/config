@@ -20,7 +20,12 @@ bindsym $mod+b border 2pixel
 #Autostart section
 
 # Start terminal with some software..:
+
 exec --no-startup-id urxvtc
+exec tmuxinator s logs
+exec tmuxinator s system
+exec tmux a
+
 ## Start clipster daemon
 exec --no-startup-id clipster -d
 #
@@ -39,15 +44,15 @@ bindsym $mod+v exec clipster -sp
 
 # Some color variables (may be useful to define colors)
 
-set $black #000000
-set $white #FFFFFF
-set $green #33FF33
-set $lightblue #6666FF
-set $blue #3333FF
-set $red #FF0000
-set $pink #FF99CC 
-set $grey #A0A0A0
-set $yellow #FFFF33
+#set $black #000000
+#set $white #FFFFFF
+#set $green #33FF33
+#set $lightblue #6666FF
+#set $blue #3333FF
+#set $red #FF0000
+#set $pink #FF99CC 
+#set $grey #A0A0A0
+#set $yellow #FFFF33
 
 # class                          border   backgr.   text
 ## BLUE ACTIVE BORDER
@@ -162,12 +167,17 @@ bindsym $mod+a focus parent
 bindsym $mod+1 workspace 1: terms
 bindsym $mod+2 workspace 2: web
 bindsym $mod+3 workspace 3: misc
-
+bindsym $mod+4 workspace 4: pdf
+bindsym $mod+5 workspace 5: videos
+bindsym $mod+6 workspace 6: kodi
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1: terms
 bindsym $mod+Shift+2 move container to workspace 2: web
 bindsym $mod+Shift+3 move container to workspace 3: misc
+bindsym $mod+Shift+4 move container to workspace 4: pdf
+bindsym $mod+Shift+5 move container to workspace 5: videos
+bindsym $mod+Shift+6 move container to workspace 6: kodi
 
 # reload the configuration file
 bindsym $mod+Shift+z reload
@@ -258,6 +268,11 @@ assign [class="Gimp"] → 3: misc
 assign [class="Virtualbox"] → 3: misc
 assign [class="Libreoffice"] → 3: misc
 assign [class="Uzbl-tabbed"] → 2: web
+assign [class="Vlc"] → 5: videos
+assign [class="mpv"] → 5: videos
+assign [class="streamlink-twitch-gui"] → 5: videos
+assign [class="Kodi"] → 6: kodi
+assign [class="Zathura"] → 4: pdf
 
 # Tip: To find out app class, might be run:
 #       xprop | grep -i 'class'
