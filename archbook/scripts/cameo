@@ -1,0 +1,3 @@
+#!/bin/zsh
+cd "/home/marioallves/Cameo Systems Modeler/bin"
+./csm

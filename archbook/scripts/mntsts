@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+
+for location in / \
+				/home/marioallves/Support
+				
+do
+	if
+		mountpoint -q "$location"
+		then
+			df -h "$location" | awk 'NR==2 {printf " " $1 " : " $4}'
+	fi
+done

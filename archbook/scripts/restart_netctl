@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+sudo systemctl restart netctl-auto@wlp3s0b1
+exit 0
