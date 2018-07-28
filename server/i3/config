@@ -3,7 +3,7 @@
 # font
 #########
 
-font pango:Arial 11px
+font pango:Arial 14px
 
 ##########
 # windows

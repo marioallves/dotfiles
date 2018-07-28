@@ -14,11 +14,12 @@ conky.config = {
 
 conky.text = [[
 
-[{ "full_text" : "VOLUME:" , "color" : "\#1793D0" } ,
+[
+ { "full_text" : "VOLUME:" , "color" : "\#1793D0" } ,
  { "full_text" : "${execpi 6 pactl list sinks | grep "Volume: " | cut -d " " -f6  | head -1}" } ,{ "full_text" : "MUSIC:" , "color" : "\#1793D0" } ,
  { "full_text" : "${if_mpd_playing}${mpd_smart 50} ${mpd_elapsed}/${mpd_length}${else}${mpd_status}${endif}" },
  { "full_text" : "FS:" , "color" : "\#1793D0" } ,
- { "full_text" : " / : ${fs_free /} ~ : ${fs_free /home/marioallves/} Support : ${fs_free /mnt/Support/} Series1 : ${fs_free /mnt/Series1} Series2 ${fs_free /mnt/Series2}" } ,
+ { "full_text" : "${exec mntsts}" } ,
  { "full_text" : "CPU:" , "color" : "\#1793D0" } ,
  { "full_text" : "${cpu cpu0}%" } ,
  { "full_text" : "TEMP:" , "color" : "\#1793D0" } ,

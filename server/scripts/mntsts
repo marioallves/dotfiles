@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+for location in /				\
+		/home				\
+		/mnt/hdd/alpha-0TB-659647 	\
+		/dev/hdd/bravo-1TB-511501	\
+		/dev/hdd/charlie-1.5TB-357116	\
+		/dev/hdd/delta-4TB-TZKR17	\
+		/dev/hdd/echo-2TB-D25UXN	\
+		/dev/hdd/foxtrot-4TB-JD50DX	\
+		/dev/hdd/golf-4TB-ZH3L4C	\
+		/dev/hdd/hotel-4TB-LJTU9X	\
+		/dev/hdd/india-4TB-VRV13K	\
+		/dev/hdd/juliet-4TB-FNJ8VR
+				
+do
+	if
+		mountpoint -q "$location"
+		then
+			df -h "$location" | awk 'NR==2 {printf " " $1 " : " $4}'
+	fi
+done
