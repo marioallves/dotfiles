@@ -28,14 +28,6 @@ exec urxvtc -e tmux attach-session -t SYSTEM
 #exec tmuxinator s system
 #exec urxvt -e tmux -L foo attach
 #exec urxvt --hold -e/usr/bin/tmux -L foo attach -t SYSTEM
-
-## Start clipster daemon
-exec --no-startup-id clipster -d
-#
-## shortcut to selection widget (primary)
-bindsym $mod+c exec clipster -sp
-#exec --no-startup-id urxvt -geometry 60x10 -e ncmpcpp
-
 ##########
 # Other programs
 #
@@ -89,6 +81,23 @@ bindsym $mod+t exec urxvt -geometry 80x30 -e htop
 # start a program launcher:
 bindsym $mod+space  exec --no-startup-id dmenu_run -b  -fn 'pango:Arial 11px' -nb '#111111' -nf '#555555' -sb '#111111' -sf '#aadb0f'
 
+# Start scratchpad notes
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] border pixel 3
+exec --no-startup-id st -n dropdown -e vim
+for_window [instance="dropdown"] move scratchpad
+bindsym $mod+u [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+
+# Start scratchpad maths (python)
+for_window [instance="math"] floating enable
+for_window [instance="math"] resize set 625 400
+for_window [instance="math"] border pixel 3
+exec --no-startup-id st -n math -e python -q
+for_window [instance="math"] move scratchpad
+bindsym $mod+Shift+u [instance="math"] scratchpad show; [instance="math"] move position center
+
+
 # Update system
 
 bindsym XF86Reload exec update && i3-nagbar -m 'update successful'
@@ -127,7 +136,7 @@ bindsym XF86LaunchA exec "scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/shots/'"
 bindsym $mod+v split v
 
 # Exec updates script that exec notify-send:
-bindsym $mod+u exec updates
+#bindsym $mod+u exec updates
 
 # enter fullscreen mode for the focused window.
 bindsym $mod+f fullscreen
