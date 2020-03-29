@@ -1,4 +1,4 @@
-*font:	monospace:size=12
+*font:	monospace:size=14
 *alpha: 0.7
 urxvt*termName:         rxvt
 !urxvt*background:       #000000
