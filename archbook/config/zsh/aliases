@@ -1,0 +1,38 @@
+# common
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'  #sorted by size
+
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
+
+alias grep='grep --color'
+
+alias -g H='| head'
+alias  T="| tail"
+alias -g G='| grep'
+alias -g L="| less"
+alias rm='rm -i'
+
+#tmux
+alias casa="tmuxinator start casa"
+alias system="tmuxinator start system"
+alias logs="tmuxinator start logs"
+alias news="tmuxinator start news"
+
+alias ta='tmux attach -t'
+alias tad='tmux attach -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+#arch
+alias yain="yay -S"
+alias yarem="yay -Rns"
+alias pacin="sudo pacman -S"
+alias upgrade="sudo pacman -Syu"
+
+alias zbarcam="LD_PRELOAD=/usr/lib/libv4l/v4l1compat.so zbarcam"
+alias youtube="mpsyt"
+alias twitch="streamlink -p mpv"
+alias twgp="twitch.tv/watchgirlsplay"
+alias tflix="torrentflix --path /home/marioallves/Downloads"

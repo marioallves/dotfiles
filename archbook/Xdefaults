@@ -1,0 +1,96 @@
+*font:	monospace:size=12
+*alpha: 0.7
+urxvt*termName:         rxvt
+!urxvt*background:       #000000
+urxvt*foreground:       #cccccc
+urxvt*scrollBar:        false
+urxvt*perl-lib:         /usr/lib/urxvt/perl/
+urxvt*perl-ext-common:  default,matcher,clipboard
+URxvt.keysym.Mod4-c:		perl:clipboard:copy
+URxvt.keysym.Mod4-v:		perl:clipboard:paste
+URxvt.keysym.Mod4-C-v:		perl:clipboard:paste_escaped
+urxvt*urlLauncher:      /usr/bin/jumanji
+urxvt*matcher.button:   1
+urxvt*fading:           50
+urxvt*fadeColor:        #000000
+Xft*dpi:                96
+Xft*antialias:          true
+Xft*hinting:            full
+
+urxvt*background:       rgba:0000/0000/0200/c800
+
+URxvt.transparent:   true
+URxvt.tintColor:     white
+URxvt.shading:       50
+
+! special
+!*.foreground:   #f600ff
+!*.background:   #070015
+!*.cursorColor:  #f600ff
+!
+!! black
+!#*.color0:       #551d8d
+!*.color0:       #d064f6 magenta
+!*.color8:       #620598 roxo
+!
+!! red
+!*.color1:       #6600cc azul escuro
+!*.color9:       #a000ff magenta
+!
+!! green
+!*.color2:       #6a84ff azul claro
+!*.color10:      #4990f4 azul claro
+!
+!! yellow
+!*.color3:       #00b7b6 teal
+!*.color11:      #00ff9f verde claro
+!
+!! blue
+!*.color4:       #274a67 azul escuro quase cinza
+!*.color12:      #3288d2 azul forte
+!
+!! magenta
+!*.color5:       #d261f8 magenta
+!*.color13:      #ae54ca magenta
+!
+!! cyan
+!*.color6:       #01907d verde meio seco
+!*.color14:      #02ccb0 verde mais claro
+!
+!! white
+!*.color7:       #9c0883 mangenta forte
+!#*.color15:      #d064f6 
+!*.color15:      #551d8d azul para o roxo
+
+
+!--------------------------------------------
+! General Colors
+
+*background:    #0f0a13
+*foreground:    #9aa8a9
+*.cursorColor:  #4a3139
+
+! Black
+*color0: #1c0c18
+*color8: #1a1e31
+! Red
+*color1: #873e54
+*color9: #bc3962
+! Green
+*color2: #2a5b6f
+*color10: #67808c
+! Yellow
+*color3: #d83746
+*color11: #fc5d7f
+! Blue
+*color4: #3e3a4d
+*color12: #685589
+! Magenta
+*color5:  #422138
+*color13: #8b4779
+! Cyan
+*color6: #164569
+*color14: #38718d
+! White
+*color7:  #d4b9d7
+*color15: #fbdeff
