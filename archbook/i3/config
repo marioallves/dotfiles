@@ -23,7 +23,8 @@ bindsym $mod+b border 2pixel
 # Start terminal with some software..:
 
 exec tmuxinator s system
-exec urxvtc -e tmux attach-session -t SYSTEM
+#exec urxvtc -e tmux attach-session -t SYSTEM
+exec st
 #exec tmuxinator s logs
 #exec tmuxinator s system
 #exec urxvt -e tmux -L foo attach
@@ -71,7 +72,7 @@ floating_modifier $mod
 ##########
 
 # start a terminal
-bindsym $mod+Return exec urxvtc || lxterminal || xterm || terminator
+bindsym $mod+Return exec st
 # kill focused window 
 bindsym $mod+Shift+c kill
 
